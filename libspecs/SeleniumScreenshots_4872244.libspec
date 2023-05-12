@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="SeleniumScreenshots" type="library" format="ROBOT" generated="20230511 11:22:18">
+<version></version>
+<scope>test case</scope>
+<namedargs>yes</namedargs>
+<doc>SeleniumScreenshots library for Robot Framework provides keywords for
+annotating and cropping screenshots taken with SeleniumLibrary.
+
+The library requires SeleniumLibrary 3.2 or later.</doc>
+<init>
+<arguments>
+<arg>crop_margin=10</arg>
+</arguments>
+<doc>Accepts the following optional keyword arguments:
+
+``crop_margin``
+    desired margin added around the selected areas in cropped
+    screenshots.</doc>
+<tags>
+</tags>
+</init>
+<kw name="Add dot">
+<arguments>
+<arg>locator</arg>
+<arg>text=</arg>
+<arg>color=black</arg>
+<arg>background=#fcf0ad</arg>
+<arg>size=20</arg>
+<arg>top=50</arg>
+<arg>left=50</arg>
+</arguments>
+<doc>Adds a colored round dot at the center of the given ``locator``
+with optional text.
+
+Accepts the following optional keyword arguments:
+
+``text``
+    text rendered inside the dot
+
+``color``
+    foreground color of the dot
+
+``background``
+    background color of the dot
+
+``size``
+    size of the dot in pixels
+
+``top``
+    top alignment of the dot in percents
+
+``left``
+    left alignment of the dot in percents.
+
+Returns id of the created element.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Add note">
+<arguments>
+<arg>locator</arg>
+<arg>text</arg>
+<arg>width=None</arg>
+<arg>color=black</arg>
+<arg>background=#fcf0ad</arg>
+<arg>border=none</arg>
+<arg>position=center</arg>
+<arg>display=block</arg>
+</arguments>
+<doc>Adds a colored note at the given ``locator`` with the given
+``text``.
+
+Accepts the following optional keyword arguments:
+
+``width``
+    width of the note in pixels
+
+``color``
+    foreground color of note note
+
+``background``
+    background color of the note
+
+``border``
+    border style of the note
+
+``position``
+    position of the note relative to the given ``locator`` and must be
+    one of the following values: ``center``, ``top``, ``right``,
+    ``bottom`` or ``left``
+
+``display``
+    display style property value of the note.
+
+Returns id of the created element.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Add pointer">
+<arguments>
+<arg>locator</arg>
+<arg>size=20</arg>
+<arg>top=50</arg>
+<arg>left=50</arg>
+</arguments>
+<doc>Adds a round transparent dot at the center of the given ``locator``.
+
+Accepts the following optional keyword arguments:
+
+``size``
+    size of the pointer in pixels
+
+``top``
+    top alignment of the pointer in percents
+
+``left``
+    left alignment of the pointer in percents.
+
+Returns id of the created element.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Add pointy note">
+<arguments>
+<arg>locator</arg>
+<arg>text</arg>
+<arg>width=None</arg>
+<arg>color=black</arg>
+<arg>background=#fcf0ad</arg>
+<arg>border=none</arg>
+<arg>position=center</arg>
+<arg>display=block</arg>
+</arguments>
+<doc>Adds a colored pointy note at the given ``locator`` with the given
+``text``.
+
+Accepts the following optional keyword arguments:
+
+``width``
+    width of the note in pixels (leave empty for auto)
+
+``color``
+    foreground color of note note
+
+``background``
+    background color of the note
+
+``border``
+    border style of the note
+
+``position``
+    position of the note relative to the given ``locator`` and must be
+    one of the following values: ``center``, ``top``, ``right``,
+    ``bottom`` or ``left``
+
+``display``
+    display style property value of the note.
+
+Returns id of the created element.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Align elements horizontally">
+<arguments>
+<arg>*locators</arg>
+</arguments>
+<doc>Aligns the elements matching the given ``locators`` so that the
+subsequent elements are aligned after the first element.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Bootstrap jQuery">
+<arguments>
+</arguments>
+<doc>Injects jQuery into the currently active window when it does not
+exist already.
+
+Most of the SeleniumScreenshots library keywords rely on jQuery
+being available on the current page. If jQuery is not globally
+available on the current page, it can be injected using this
+keyword. Otherwise the keywords will fail.
+
+This keyword is primarily for the internal use of this keyword library.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Capture and crop page screenshot">
+<arguments>
+<arg>filename</arg>
+<arg>*locators</arg>
+</arguments>
+<doc>Captures a page screenshot with the given ``filename`` and crops it to
+match the combined bounding box of the elements matching the given
+``locators``.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Capture viewport screenshot">
+<arguments>
+<arg>filename</arg>
+</arguments>
+<doc>Captures a page screenshot with the given ``filename`` and crops it
+to match the current browser window dimensions and scroll position.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Clear highlight">
+<arguments>
+<arg>locator</arg>
+</arguments>
+<doc>Clears the highlighting from the elements at the given ``locator``.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Crop image">
+<arguments>
+<arg>output_dir</arg>
+<arg>filename</arg>
+<arg>left</arg>
+<arg>top</arg>
+<arg>width</arg>
+<arg>height</arg>
+</arguments>
+<doc>Crop the saved image at the given ``output_dir`` with the given
+``filename`` down to the given dimensions.
+
+This keyword is primarily for the internal use of this keyword library.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Crop page screenshot">
+<arguments>
+<arg>filename</arg>
+<arg>*locators</arg>
+</arguments>
+<doc>Crops the given ``filename`` to match the combined bounding box of
+the elements matching the given ``locators``.
+
+This keyword is primarily for the internal use of this keyword library.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Highlight">
+<arguments>
+<arg>locator</arg>
+<arg>width=3</arg>
+<arg>style=dotted</arg>
+<arg>color=red</arg>
+</arguments>
+<doc>Adds a simple highlighting for the elements at the given
+``locator``.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Normalize annotation locator">
+<arguments>
+<arg>locator</arg>
+</arguments>
+<doc>Normalizes the given *SeleniumLibrary*-locator into
+*Sizzle*-selector, which is the supported selector format in the jQuery
+based keywords of this library.
+
+Returns a normalized version of the given locator.
+
+This keyword is primarily for the internal use of this keyword library.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Remove element">
+<arguments>
+<arg>locator</arg>
+</arguments>
+<doc>Removes the element at the given ``locator`` from the current
+page.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Remove elements">
+<arguments>
+<arg>*locators</arg>
+</arguments>
+<doc>Removes the elements at the given ``locators`` from the current
+page.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Update element style">
+<arguments>
+<arg>locator</arg>
+<arg>name</arg>
+<arg>value</arg>
+</arguments>
+<doc>Updates style for elements at the ``locator`` matching the given
+``name`` with the given ``value``,</doc>
+<tags>
+</tags>
+</kw>
+</keywordspec>

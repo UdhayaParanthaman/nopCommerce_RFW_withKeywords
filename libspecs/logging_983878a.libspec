@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="logging" type="library" format="ROBOT" generated="20230510 17:06:35">
+<version>0.5.1.2</version>
+<scope>global</scope>
+<namedargs>yes</namedargs>
+<doc>Logging package for Python. Based on PEP 282 and comments thereto in
+comp.lang.python.
+
+Copyright (C) 2001-2017 Vinay Sajip. All Rights Reserved.
+
+To use, simply 'import logging' and log away!</doc>
+<kw name="Add Level Name">
+<arguments>
+<arg>level</arg>
+<arg>levelName</arg>
+</arguments>
+<doc>Associate 'levelName' with 'level'.
+
+This is used when converting levels to text during message formatting.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Basic Config">
+<arguments>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Do basic configuration for the logging system.
+
+This function does nothing if the root logger already has handlers
+configured. It is a convenience method intended for use by simple scripts
+to do one-shot configuration of the logging package.
+
+The default behaviour is to create a StreamHandler which writes to
+sys.stderr, set a formatter using the BASIC_FORMAT format string, and
+add the handler to the root logger.
+
+A number of optional keyword arguments may be specified, which can alter
+the default behaviour.
+
+filename  Specifies that a FileHandler be created, using the specified
+          filename, rather than a StreamHandler.
+filemode  Specifies the mode to open the file, if filename is specified
+          (if filemode is unspecified, it defaults to 'a').
+format    Use the specified format string for the handler.
+datefmt   Use the specified date/time format.
+style     If a format string is specified, use this to specify the
+          type of format string (possible values '%', '{', '$', for
+          %-formatting, :meth:`str.format` and :class:`string.Template`
+          - defaults to '%').
+level     Set the root logger level to the specified level.
+stream    Use the specified stream to initialize the StreamHandler. Note
+          that this argument is incompatible with 'filename' - if both
+          are present, 'stream' is ignored.
+handlers  If specified, this should be an iterable of already created
+          handlers, which will be added to the root handler. Any handler
+          in the list which does not have a formatter assigned will be
+          assigned the formatter created in this function.
+
+Note that you could specify a stream created using open(filename, mode)
+rather than passing the filename and mode in. However, it should be
+remembered that StreamHandler does not close its stream (since it may be
+using sys.stdout or sys.stderr), whereas FileHandler closes its stream
+when the handler is closed.
+
+.. versionchanged:: 3.2
+   Added the ``style`` parameter.
+
+.. versionchanged:: 3.3
+   Added the ``handlers`` parameter. A ``ValueError`` is now thrown for
+   incompatible arguments (e.g. ``handlers`` specified together with
+   ``filename``/``filemode``, or ``filename``/``filemode`` specified
+   together with ``stream``, or ``handlers`` specified together with
+   ``stream``.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Capture Warnings">
+<arguments>
+<arg>capture</arg>
+</arguments>
+<doc>If capture is true, redirect all warnings to the logging package.
+If capture is False, ensure that warnings are not redirected to logging
+but to their original destinations.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Critical">
+<arguments>
+<arg>msg</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Log a message with severity 'CRITICAL' on the root logger. If the logger
+has no handlers, call basicConfig() to add a console handler with a
+pre-defined format.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Debug">
+<arguments>
+<arg>msg</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Log a message with severity 'DEBUG' on the root logger. If the logger has
+no handlers, call basicConfig() to add a console handler with a pre-defined
+format.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Disable">
+<arguments>
+<arg>level=50</arg>
+</arguments>
+<doc>Disable all logging calls of severity 'level' and below.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Error">
+<arguments>
+<arg>msg</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Log a message with severity 'ERROR' on the root logger. If the logger has
+no handlers, call basicConfig() to add a console handler with a pre-defined
+format.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Exception">
+<arguments>
+<arg>msg</arg>
+<arg>*args</arg>
+<arg>exc_info=True</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Log a message with severity 'ERROR' on the root logger, with exception
+information. If the logger has no handlers, basicConfig() is called to add
+a console handler with a pre-defined format.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Fatal">
+<arguments>
+<arg>msg</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Log a message with severity 'CRITICAL' on the root logger. If the logger
+has no handlers, call basicConfig() to add a console handler with a
+pre-defined format.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Get Level Name">
+<arguments>
+<arg>level</arg>
+</arguments>
+<doc>Return the textual representation of logging level 'level'.
+
+If the level is one of the predefined levels (CRITICAL, ERROR, WARNING,
+INFO, DEBUG) then you get the corresponding string. If you have
+associated levels with names using addLevelName then the name you have
+associated with 'level' is returned.
+
+If a numeric value corresponding to one of the defined levels is passed
+in, the corresponding string representation is returned.
+
+Otherwise, the string "Level %s" % level is returned.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Get Log Record Factory">
+<arguments>
+</arguments>
+<doc>Return the factory to be used when instantiating a log record.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Get Logger">
+<arguments>
+<arg>name=None</arg>
+</arguments>
+<doc>Return a logger with the specified name, creating it if necessary.
+
+If no name is specified, return the root logger.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Get Logger Class">
+<arguments>
+</arguments>
+<doc>Return the class to be used when instantiating a logger.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Info">
+<arguments>
+<arg>msg</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Log a message with severity 'INFO' on the root logger. If the logger has
+no handlers, call basicConfig() to add a console handler with a pre-defined
+format.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Log">
+<arguments>
+<arg>level</arg>
+<arg>msg</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Log 'msg % args' with the integer severity 'level' on the root logger. If
+the logger has no handlers, call basicConfig() to add a console handler
+with a pre-defined format.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Make Log Record">
+<arguments>
+<arg>dict</arg>
+</arguments>
+<doc>Make a LogRecord whose attributes are defined by the specified dictionary,
+This function is useful for converting a logging event received over
+a socket connection (which is sent as a dictionary) into a LogRecord
+instance.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Set Log Record Factory">
+<arguments>
+<arg>factory</arg>
+</arguments>
+<doc>Set the factory to be used when instantiating a log record.
+
+:param factory: A callable which will be called to instantiate
+a log record.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Set Logger Class">
+<arguments>
+<arg>klass</arg>
+</arguments>
+<doc>Set the class to be used when instantiating a logger. The class should
+define __init__() such that only a name argument is required, and the
+__init__() should call Logger.__init__()</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Shutdown">
+<arguments>
+<arg>handlerList=[&lt;weakref at 0x00000190D0508368; to '_StderrHandler' at 0x00000190D05031C8&gt;, &lt;weakref at 0x00000190D02DAA98; to 'StreamHandler' at 0x00000190D02DC5C8&gt;, &lt;weakref at 0x00000190D02DF098; to 'StreamHandler' at 0x00000190D02DD4C8&gt;, &lt;weakref at 0x00000190D02E9408; to 'StreamHandler' at 0x00000190D02E0F88&gt;]</arg>
+</arguments>
+<doc>Perform any cleanup actions in the logging system (e.g. flushing
+buffers).
+
+Should be called at application exit.</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Warn">
+<arguments>
+<arg>msg</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Warning">
+<arguments>
+<arg>msg</arg>
+<arg>*args</arg>
+<arg>**kwargs</arg>
+</arguments>
+<doc>Log a message with severity 'WARNING' on the root logger. If the logger has
+no handlers, call basicConfig() to add a console handler with a pre-defined
+format.</doc>
+<tags>
+</tags>
+</kw>
+</keywordspec>
